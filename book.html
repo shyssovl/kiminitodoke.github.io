@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>만화책</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="font.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* body {
+            background-color: #fff5f8;
+            
+        } */
+
+
+        /* #wrap {
+            width: 100%;
+            overflow: hidden;
+            margin: 20px 0;
+            position: relative;
+        } */
+
+        #end img {
+            width: 100%;
+            /* 이미지를 부모 요소의 너비에 맞게 조정 */
+            height: auto;
+            /* 이미지의 비율을 유지 */
+            display: block;
+            /* 이미지를 블록 요소로 설정하여 여백을 제거 */
+        }
+
+
+
+
+        /* 슬라이더 */
+        #section1 {
+            background-color: #fff5f8;
+            position: relative;
+            /* 섹션 1을 기준으로 버튼의 위치를 지정하기 위해 relative로 설정 */
+            /* margin: 100px 0 0 0; */
+        }
+
+
+        #book-slider {
+            display: flex;
+            transition: transform .5s ease-in-out;
+            padding: 50px 0;
+        }
+
+        .book {
+            width: 300px;
+            padding: 0 20px;
+            flex-shrink: 0;
+            position: relative;
+            /* 추가 */
+            border-right: dashed 1px #ff93b7;
+
+        }
+
+        .book h2 {
+            display: flex;
+            justify-content: center;
+            /* 텍스트를 수평으로 중앙 정렬 */
+            align-items: center;
+            /* 텍스트를 수직으로 중앙 정렬 */
+            width: 30px;
+            /* 원하는 정원의 크기 */
+            height: 30px;
+            /* 너비와 높이를 동일하게 설정 */
+            line-height: 30px;
+            /* 요소의 높이와 같은 값으로 설정하여 텍스트를 수직 중앙 정렬 */
+            text-align: center;
+            /* 텍스트를 수평 중앙 정렬 */
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 14px;
+            background-color: #ff70a0;
+            border-radius: 50%;
+            font-family: sans-serif;
+        }
+
+        .img-box {
+            width: 200px;
+            /* 각 img-box의 크기를 조정하여 한 화면에 여러 개가 보이도록 설정 */
+
+            margin: 50px;
+            flex-shrink: 0;
+            /* 슬라이더 안에서 크기가 줄어들지 않도록 설정 */
+            justify-content: center;
+            /* 이미지를 수평 중앙으로 정렬 */
+
+        }
+
+        .img-box img {
+            max-width: 100%;
+            /* 이미지가 부모 요소를 넘어가지 않도록 최대 너비 설정 */
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+            /* 호버 효과를 위한 트랜지션 추가 */
+        }
+
+        .img-box img:hover {
+            transform: scale(0.9);
+            /* 호버 시 이미지 크기를 줄임 */
+        }
+
+        .book:hover ul li {
+            color: #fff;
+            background-color: #ff93b7;
+            /* 원하는 배경색으로 변경 */
+            transition: 0.3s ease, color 1s ease;
+        }
+
+        .text-container {
+            padding: 10px;
+            list-style: none;
+            justify-content: space-around;
+        }
+
+        .text-container ul {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+
+        .text-container ul li {
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #ff70a0;
+        }
+
+        .content-low p {
+            margin-top: 40px;
+            font-size: 12px;
+            font-family: sans-serif;
+            color: #666;
+        }
+
+        .slider-button {
+            position: absolute;
+            /* 절대 위치 지정 */
+            top: 300px;
+            transform: translateY(-50%);
+
+            color: #ff70a0;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            width: 70px;
+            /* 버튼 너비 */
+            height: 70px;
+            /* 버튼 높이*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            /* 동그란 모양 */
+            background-color: #ffb8d0;
+            /* 버튼 배경색 설정 */
+            border: 2px dotted #ff93b7;
+            /* 점선 테두리 설정 */
+            transition: background-color 0.3s ease, color 0.6s ease;
+            /* 트랜지션 효과 추가 */
+            font-weight: bold;
+        }
+
+        .slider-button:hover {
+            color: #fff;
+            background-color: #ff93b7;
+        }
+
+        #prev {
+            left: 10px;
+        }
+
+        #next {
+            right: 10px;
+        }
+
+
+
+
+
+
+
+        /* ========================================================================= */
+        /* 섹션2 */
+        #section2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-image: url("image/배경/패턴_하트.png"); */
+            background-image: url("image/배경/수채화.png");
+            /* background-color: #fff5f8; */
+            /* margin-top: 200px; */
+
+        }
+
+        @keyframes swing {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(20deg);
+            }
+
+            50% {
+                transform: rotate(0deg);
+            }
+
+            75% {
+                transform: rotate(-20deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+
+        .title h1 {
+            margin-bottom: 50px;
+            color: #ff93b7;
+            font-family: "NeoDunggeunmo";
+            font-size: 44px;
+            text-align: center;
+            margin-top: 170px;
+            background-image: url();
+        }
+
+        .swing-text {
+            display: inline-block;
+            animation: swing 2s infinite;
+        }
+
+        #book2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 100px;
+            /* 이미지 사이의 간격 조절 */
+            padding: 180px 80px;
+        }
+
+        #book2 img {
+            max-width: 250px;
+            /* 이미지 너비 조절 */
+            height: auto;
+            /* 이미지 높이 자동 조절 */
+            transition: transform 0.3s ease;
+            /* 호버 시 애니메이션을 부드럽게 만들기 위한 트랜지션 추가 */
+            border-radius: 12px;
+        }
+
+        #book2 img:hover {
+            /* transform: scale(1.2); */
+            /* 호버 시 이미지 크기를 1.2배로 확대 */
+            opacity: 0.7;
+        }
+
+
+
+
+
+
+
+        /* 모달 스타일 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: #ffb8d0;
+        }
+
+        .modal-content {
+            margin: 5% auto;
+            display: block;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        #caption {
+            margin: auto;
+
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #fff;
+            padding: 10px 0 100px 0;
+            height: 300px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #ff93b7;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            background-color: #fff8da;
+            padding: 5px 15px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ff70a0;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+
+        /* 반응형 스타일 */
+        @media (max-width: 1200px) {
+            #book2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            #book2 {
+                grid-template-columns: 1fr;
+                padding: 100px 20px;
+            }
+
+            .slider-button {
+                width: 50px;
+                height: 50px;
+                font-size: 14px;
+            }
+
+            .book {
+                width: 250px;
+            }
+
+            .img-box {
+                width: 150px;
+                margin: 20px;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+            #section1 {
+                margin: 50px 0 100px 0;
+            }
+
+            .slider-button {
+                display: none;
+            }
+
+            .book {
+                width: 200px;
+            }
+
+            .img-box {
+                width: 120px;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================================================================================================================================= -->
+    <!-- 헤더 -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="image/logo.png" alt="Logo">
+        </a>
+        <div class="nav1">
+            <nav>
+                <ul>
+                    <li><a href="summary.html">줄거리</a></li>
+                    <li><a href="character.html">캐릭터소개</a></li>
+                    <li><a href="stillcut.html">스틸컷</a></li>
+                    <li><a href="book.html">만화책</a></li>
+                    <li><a href="recommend.html">비슷한작품추천</a></li>
+                </ul>
+                <div class="menu-close">Close</div>
+
+
+                <div class="nav-inner">
+                    <p>いつかあなたに届くことができるか</p>
+                    <a href="index.html" class="footer-logo">
+                        <img src="image/logo_호버.png" alt="Logo">
+                    </a>
+                    <p class="small-text">ⓒ 2024 Jang Sohyeon All Right Reserved</p>
+                </div>
+            </nav>
+        </div>
+
+        <div class="menu-toggle">MENU</div>
+    </header>
+
+
+
+
+
+    <!-- ========================================================================================================================================================= -->
+    <!-- 본문 -->
+
+    <div class="title">
+        <h1><span class="swing-text">만</span><span class="swing-text">화</span><span class="swing-text">책</span>
+            <span class="swing-text">둘</span><span class="swing-text">러</span><span class="swing-text">보</span><span
+                class="swing-text">기</span>
+        </h1>
+    </div>
+
+    <section id="end">
+        <img src="image/꾸미기/구분선-핑크노랑.png">
+    </section>
+
+    <section id="section1">
+
+        <button id="prev" class="slider-button">back</button>
+        <button id="next" class="slider-button">next</button>
+
+        <div id="book-slider">
+            <!-- 01 -->
+            <div class="book">
+                <h2>1</h2>
+                <div class="img-box">
+                    <img src="image/만화책/01.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>0. 프롤로그</li>
+                        <li>1. 자리 바꾸기</li>
+                        <li>2. 방과 후</li>
+                        <li>3. 웃는 얼굴</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2006.05.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- 02 -->
+            <div class="book">
+                <h2>2</h2>
+                <div class="img-box">
+                    <img src="image/만화책/02.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>4. 소문</li>
+                        <li>5. 본심</li>
+                        <li>6. 결의</li>
+                        <li>7. 친구</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2006.09.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 03 -->
+            <div class="book">
+                <h2>3</h2>
+                <div class="img-box">
+                    <img src="image/만화책/03.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>8. 토요일 밤</li>
+                        <li>9. 연습</li>
+                        <li>10. 새로운 친구</li>
+                        <li>11. 협력</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2007.01.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 04 -->
+            <div class="book">
+                <h2>4</h2>
+                <div class="img-box">
+                    <img src="image/만화책/04.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>12 + 13. 특별하다? + 알고 싶어</li>
+                        <li>14. 연애감정</li>
+                        <li>15. 사랑</li>
+                        <li>16. 쿠루미</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2007.05.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- 05 -->
+            <div class="book">
+                <h2>5</h2>
+                <div class="img-box">
+                    <img src="image/만화책/05.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>17. 라이벌</li>
+                        <li>18. 휴일</li>
+                        <li>19. 치즈루의 사랑</li>
+                        <li>20. 형 돌아오다</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2007.11.22 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- 06 -->
+            <div class="book">
+                <h2>6</h2>
+                <div class="img-box">
+                    <img src="image/만화책/06.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>21. 꿈</li>
+                        <li>22. 미니스커트</li>
+                        <li>23. 첫눈</li>
+                        <li>24. 크리스마스</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.03.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- 07 -->
+            <div class="book">
+                <h2>7</h2>
+                <div class="img-box">
+                    <img src="image/만화책/07.jpg">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>25. 두 사람</li>
+                        <li>26. 생일</li>
+                        <li>27. 새해</li>
+                        <li>28. 밸런타인</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.07.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 08 -->
+            <div class="book">
+                <h2>8</h2>
+                <div class="img-box">
+                    <img src="image/만화책/08.jpg">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>29. 2학년</li>
+                        <li>30. 잊어버려</li>
+                        <li>31+32. 거리가 있다? + 몰라</li>
+                        <li>33+번외. 달린다 + 친구수첩</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 09 -->
+            <div class="book">
+                <h2>9</h2>
+                <div class="img-box">
+                    <img src="image/만화책/09.jpg">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>34. 좋아하는 사람</li>
+                        <li>35. 호의와 민폐</li>
+                        <li>36+37. 뭘 보아온 거야? + 포기해버려</li>
+                        <li>38. 닿기를</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- 10 -->
+            <div class="book">
+                <h2>10</h2>
+                <div class="img-box">
+                    <img src="image/만화책/10.jpg">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>39. 고백</li>
+                        <li>40. 여기서부터</li>
+                        <li>41. 축제가 끝나고</li>
+                        <li>42. 사와코와 쿠루미</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11 -->
+            <div class="book">
+                <h2>11</h2>
+                <div class="img-box">
+                    <img src="image/만화책/11.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>43. 언제부터</li>
+                        <li>44. 그 날</li>
+                        <li>45. 이제 곧 여름방학</li>
+                        <li>46. 데이트</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12 -->
+            <div class="book">
+                <h2>12</h2>
+                <div class="img-box">
+                    <img src="image/만화책/12.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>47. 조금만</li>
+                        <li>48. 평소처럼 보여?</li>
+                        <li>49. 싫어할 리가 없잖아</li>
+                        <li>50. 큰소리로</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13 -->
+            <div class="book">
+                <h2>13</h2>
+                <div class="img-box">
+                    <img src="image/만화책/13.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>51. 여름과 바다</li>
+                        <li>52. 카제하야 집</li>
+                        <li>53. 이름</li>
+                        <li>54. 만남</li>
+                        <li>55. 수학여행</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 14 -->
+            <div class="book">
+                <h2>14</h2>
+                <div class="img-box">
+                    <img src="image/만화책/14.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>56. 아침부터 밤까지</li>
+                        <li>57. 키스</li>
+                        <li>58. 어떤 얼굴로</li>
+                        <li>59. 자유시간</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 15 -->
+            <div class="book">
+                <h2>15</h2>
+                <div class="img-box">
+                    <img src="image/만화책/15.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>60. 끝났구나</li>
+                        <li>61. 그렇지 않아</li>
+                        <li>62. 이젠</li>
+                        <li>63. 이제 그만 끝내</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 16 -->
+            <div class="book">
+                <h2>16</h2>
+                <div class="img-box">
+                    <img src="image/만화책/16.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>64. 남친과 여친</li>
+                        <li>65. 고민 있어?</li>
+                        <li>66. 소중해</li>
+                        <li>67. 크리스마스 파티</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 17 -->
+            <div class="book">
+                <h2>17</h2>
+                <div class="img-box">
+                    <img src="image/만화책/17.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>68. 선물</li>
+                        <li>69. 지키고 싶은 것</li>
+                        <li>70. 소중히 아껴줄게</li>
+                        <li>71. 성탄 전야</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 18 -->
+            <div class="book">
+                <h2>18</h2>
+                <div class="img-box">
+                    <img src="image/만화책/18.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>72. 45분</li>
+                        <li>73. 확인</li>
+                        <li>74. 여자들의 모임</li>
+                        <li>75. 행복한 한때</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 19 -->
+            <div class="book">
+                <h2>19</h2>
+                <div class="img-box">
+                    <img src="image/만화책/19.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>76. 12월 31일</li>
+                        <li>77. 숙제</li>
+                        <li>78. 선택사항</li>
+                        <li>79. 바닥에 있는 것</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 20 -->
+            <div class="book">
+                <h2>20</h2>
+                <div class="img-box">
+                    <img src="image/만화책/20.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>80. 마음대로 해</li>
+                        <li>81. 제안</li>
+                        <li>82. 저마다의 밸런타인데이</li>
+                        <li>83. 그런 얼굴</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 21 -->
+            <div class="book">
+                <h2>21</h2>
+                <div class="img-box">
+                    <img src="image/만화책/21.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>84. 화이트데이</li>
+                        <li>85. 마지막 1년</li>
+                        <li>86. 수험생</li>
+                        <li>87. 가고 싶은 길</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 22 -->
+            <div class="book">
+                <h2>22</h2>
+                <div class="img-box">
+                    <img src="image/만화책/22.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>88. 가지 마</li>
+                        <li>89. 인정하고 싶어</li>
+                        <li>90. 실수했다</li>
+                        <li>91. 아침 데이트 + 속눈썹의 각도는 45°로</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 23 -->
+            <div class="book">
+                <h2>23</h2>
+                <div class="img-box">
+                    <img src="image/만화책/23.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>92. 본심</li>
+                        <li>93. 후회</li>
+                        <li>94. 자신</li>
+                        <li>95. 고마워</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 24 -->
+            <div class="book">
+                <h2>24</h2>
+                <div class="img-box">
+                    <img src="image/만화책/24.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>96. 현재 과거 미래</li>
+                        <li>97. 학원제</li>
+                        <li>98. 언제까지나</li>
+                        <li>99. 꿈이 아냐</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 25 -->
+            <div class="book">
+                <h2>25</h2>
+                <div class="img-box">
+                    <img src="image/만화책/25.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>100. 힘내</li>
+                        <li>101. 잘 다녀와</li>
+                        <li>102. 유대감</li>
+                        <li>103. 싸움</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 26 -->
+            <div class="book">
+                <h2>26</h2>
+                <div class="img-box">
+                    <img src="image/만화책/26.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>104. 이제 제대로 응석부리고 있어</li>
+                        <li>105. 동경</li>
+                        <li>106. 잊어도 돼</li>
+                        <li>107. 첫사랑</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 27 -->
+            <div class="book">
+                <h2>27</h2>
+                <div class="img-box">
+                    <img src="image/만화책/27.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>108. 말할 수 있었어</li>
+                        <li>109. 쇼유타</li>
+                        <li>110. 언제나</li>
+                        <li>111. 흘러넘쳤다</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 28 -->
+            <div class="book">
+                <h2>28</h2>
+                <div class="img-box">
+                    <img src="image/만화책/28.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>112. 깨달음</li>
+                        <li>113. 눈보라</li>
+                        <li>114. 약속</li>
+                        <li>115. 소원</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 29 -->
+            <div class="book">
+                <h2>29</h2>
+                <div class="img-box">
+                    <img src="image/만화책/29.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>116. 받아들여줘</li>
+                        <li>117. 괜찮아</li>
+                        <li>118. 보물</li>
+                        <li>119. 졸업</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 30 -->
+            <div class="book">
+                <h2>30</h2>
+                <div class="img-box">
+                    <img src="image/만화책/30.webp">
+                </div>
+                <div class="text-container">
+                    <ul>
+                        <li>120. 떠나다</li>
+                        <li>121. 새로운 생활</li>
+                        <li>122. 같은 마음으로</li>
+                        <li>123. 너에게 닿기를</li>
+                    </ul>
+                    <div class="content-low">
+                        <p>2008.11.25 | 시이나 카루호</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- book-slider -->
+    </section> <!-- section1 -->
+
+
+
+
+    <section id="end">
+        <img src="image/꾸미기/구분선-핑크노랑.png">
+    </section>
+
+
+
+    <!-- =================================================================================================================================== -->
+    <section id="section2">
+
+
+        <div id="book2">
+            <img class="img1" src="image/만화책/01.webp" data-text="쿠로누마 사와코. 15살. 사와코는 음산한 겉모습 때문에 사람들에게 두려움의 대상이 된다. 
+            
+            그런 자신을 거리낌없이 대하는 카제하야를 동경하던 사와코는 카제하야의 말을 계기로 조금씩 변해간다···.
+            
+            그리고 여름방학 전 담력시험에서 귀신 역할을 맡는데-?!">
+
+
+
+
+            <img class="img2" src="image/만화책/02.webp" data-text="쿠로누마 사와코. 15살. 좌우명은 하루에 한 가지 착한 일 하기···.
+
+            밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 초등학교 이후로 내내 ‘사다코’라 불리며 공포의 대상이 되어왔다.
+            
+            그럼에도 반 친구들과 친해지려고 애를 쓰는 사와코! 하지만 늘 반에서 겉돌기만 하고. 
+
+            그런 사와코 앞에 남들과 다름없이 대해주는 카제하야가 등장한다!! 싹싹한 성격과 상큼한 미소로 누구에게나 사랑받는 카제하야. 그런 그를 사와코는 몹시 동경하는데. 
+            
+            알고 보니 카제하야도 입학식 날 우연히 사와코의 미소를 본 뒤로 내내 그녀를 의식해왔던 것이다. 
+            
+            그런 카제하야와의 대화를 계기로 사와코는 요시다&야노와도 급격히 친해지게(?) 되어 행복해한다. 
+            
+            그러던 중, 요시다와 야노에 대한 나쁜 소문이 퍼지고 그 소문을 퍼뜨린 사람이 ‘사다코’라고 하는데-?!">
+
+
+
+
+
+            <img class="img3" src="image/만화책/03.webp" data-text="쿠로누마 사와코. 15살. 밝고 쉽게 감동하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그런 사와코를 남들과 다름없이 대해주는 카제하야는 사와코에게 동경의 대상.
+            
+            그와의 대화를 계기로 사와코는 처음으로 같은 반의 야노와 요시다랑 친해지게 된다. 그렇게 카제하야에 대한 사와코의 마음이 조금씩 커져가던 어느 날. 학교 안에 요시다와 야노에 대한 나쁜 소문이 돌기 시작하고.
+            
+            게다가 그 소문의 진원지가 다름 아닌 '사다코'라고 하는데?!
+            
+            사와코는 친구들에게 폐가 될까봐 카제하야의 말에 용기를 얻어 요시다와 야노한테 자신의 마음을 말하기로 결심한다.
+            
+            그리고 소문과 정면으로 맞서는 사와코!! 
+            
+            그런 사와코의 모습에 요시다와 야노는 진한 우정을 느끼는데-?!
+            
+            ">
+
+
+
+
+            <img class="img4" src="image/만화책/04.webp" data-text="쿠로누마 사와코. 15살. 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 초등학교 이후로 내내 ‘사다코’라 불리며 공포의 대상이 되어왔다.
+
+            그런 사와코를 남들과 다름없이 대해주는 카제하야는 사와코에게 동경의 대상.
+            
+            그와의 대화를 계기로 사와코는 처음으로 같은 반의 야노와 요시다랑 친해지게 된다.
+            
+            그러던 어느 날, 쿠루미라는 인형처럼 예쁘게 생긴 애가 사와코에게 친한 척 접근한다.
+            
+            밝은 성격에 자연스럽게 사와코라고 불러주는 쿠루미가 부럽기만 한 사와코.
+            
+            그런데 쿠루미는 『카제하야를 좋아하니 도와달라』며 사와코에게 부탁을 한다.
+            
+            카제하야에 대한 자신의 마음을 드디어 깨닫기 시작한 사와코는 쿠루미의 부탁을 거절하는데-?!
+            
+            ">
+
+
+
+
+            <img class="img5" src="image/만화책/05.webp" data-text="쿠로누마 사와코. 15살. 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 초등학교 이후로 내내 ‘사다코’라 불리며 공포의 대상이 되어왔다.
+            
+            하지만 자신에게 호의적인 같은 반의 카제하야 덕분에 사와코는 처음으로 야노와 요시다라는 친구가 생겨 하루하루 감격에 겨운 나날을 보낸다.
+            
+            그러던 어느 날, 쿠루미가 사와코에게 친한 척 접근해서 『카제하야를 좋아한다』고 고백한다.
+            
+            카제하야를 특별히 여기는 사와코는 도저히 쿠루미를 응원해줄 수가 없다. 더구나 사와코는 쿠루미로 인해 처음으로 자신이 카제하야를 좋아한다는 걸 깨닫는데.
+            
+            하지만 쿠루미의 목적은 처음부터 사와코를 카제하야한테서 떨어뜨려놓는 것이었고.
+            
+            그러기 위해 요시다와 야노까지 끌어들여 안 좋은 소문을 퍼뜨렸다는 게 야노에 의해 밝혀진다. 
+            
+            친구라고 생각했던 사와코는 큰 충격을 받지만···
+            
+            쿠루미의 마음이 아플 만큼 전해져오는데?!
+            
+            ">
+
+
+
+
+
+            <img class="img6" src="image/만화책/06.webp" data-text="쿠로누마 사와코. 15살. 밝고 쉽게 감동하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어왔다.
+            
+            하지만 자신에게 호의적인 같은 반의 카제하야 덕분에 사와코는 처음으로 야노와 요시다라는 친구를 사귄다.
+            
+            그리고 쿠루미로 인해 카제하야를 좋아한다는 사실을 자각하는 사와코.
+            
+            그러던 어느 날, 사와코는 요시다와 함께 류의 생일 선물을 사러 가게 된다.
+            
+            류가 요시다를 좋아한다는 걸 알고 있던 사와코는 두 사람이 잘 되길 빌지만, 요시다가 좋아하는 건 류의 형인, 토오루였는데?!
+            
+            토오루가 설날에 돌아오면 미니스커트를 입고 만나러 가겠다♡고 벼르던 요시다.
+            
+            하지만 채 설날이 되기도 전에 토오루가 돌아온다.
+            
+            이른 만남에 기뻐하는 요시다이지만-?!
+            
+            ">
+
+
+
+
+            <img class="img7" src="image/만화책/07.jpg" data-text="쿠로누마 사와코. 15살. 밝고 쉽게 감동하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어왔다.
+            
+            하지만 자신에게 호의적인 같은 반 카제하야 덕분에 사와코는 처음으로 야노와 요시다라는 친구를 사귀게 된다. 
+            
+            한편 사와코는 카제하야에 대한 자신의 마음을 깨닫고, 요시다와 야노는 그런 사와코를 응원해준다.
+            
+            그러던 어느 날, 사와코 일행은 우연히 요시다가 짝사랑하는 류의 형, 토오루에게 약혼녀가 있다는 걸 알게 된다.
+            
+            요시다는 큰 충격을 받지만 사와코 일행의 우정과 류의 애정으로 다시 기운을 되찾는다.
+            
+            그리고 12월, 친구들과 처음으로 크리스마스를 함께할 생각에 들뜬 사와코.
+            
+            하지만 부모님 때문에 파티 참가는 단념한다.
+            
+            아버지는 그런 딸의 마음을 헤아리고 휴대폰을 선물로 주며 파티에 보내주는데-?!">
+
+
+            <img class="img8" src="image/만화책/08.jpg" data-text="쿠로누마 사와코. 15살. 밝고 쉽게 감동하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            하지만 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구를 사귀게 된다.
+            
+            야노와 요시다는 카제하야를 좋아하는 사와코를 응원해주는데. 
+            
+            12월, 사와코는 친구들과 처음으로 크리스마스를 함께 보낸다.
+            
+            아빠가 선물해준 휴대폰에는 제일 처음 카제하야의 번호가 저장되고···♡
+            
+            겨울방학, 다 같이 새해 참배에 가자는 요시다 일행의 부채질에 처음으로 카제하야에게 전화를 거는 사와코!
+            
+            그리고 참배가는 날이 사와코의 생일이란 걸 안 요시다와 야노는 사와코에게 화장을 해주고 카제하야와 단둘이 있을 시간을 마련해준다.
+            
+            그렇게 새해 참배는 즐겁게 보낸 사와코였지만. 
+            
+            밸런타인데이에는 긴장한 나머지 초콜릿을 건네지 못한 채 끝나고 만다-.">
+
+
+            <img class="img9" src="image/만화책/09.jpg" data-text="쿠로누마 사와코. 15살. 밝고 쉽게 감동하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            하지만 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생긴다.
+            
+            카제하야를 좋아하는 사와코를 언제나 응원해주던 야노와 요시다는 사와코의 생일에 카제하야와 단 둘이 있을 시간을 마련해준다.
+            
+            카제하야와 즐거운 시간을 보낸 것도 잠시 밸런타인데이에 너무 긴장한 나머지 카제하야한테만 초콜릿을 주지 못한 사와코.
+            
+            좋아하기 시작한 카제하야의 마음은 착잡한데···.
+            
+            2학년이 되어 사와코에게 친밀하게 다가가는 같은 반 켄토의 출현으로 카제하야는 초조해진다.
+            
+            그러던 중 그의 마음을 아는 담임한테 놀림을 받고 뜻을 굳힌 카제하야는 사와코에게 달려가지만-?!">
+
+
+            <img class="img10" src="image/만화책/10.jpg" data-text="쿠로누마 사와코는 밝고 쉽게 감동하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            그녀들은 카제하야를 좋아하는 사와코를 항상 응원해준다.
+            
+            하지만 워낙 오랫동안 사람들에게 배척당해온 사와코는 카제하야의 호의를 있는 그대로 받아들이지 못한 채 밸런타인데이에도 차마 초콜릿을 주지 못한다···.
+            
+            16살이 되어 사와코에게 친밀하게 구는 같은 반 켄토의 출현으로 초조해진 카제하야는 반 애들 앞에서 '쿠로누마를 좋아한다'고 고백하지만,
+            
+            사와코가 '오해받는다'며 쩔쩔매자 자신의 고백으로 곤란해진 줄 알고 카제하야는 사와코 곁을 떠난다.
+            
+            잔뜩 풀이 죽었던 사와코는 요시다 일행의 위로에 힘을 얻어 자신의 진짜 마음을 전하기로 마음먹고 카제하야를 찾아가는데-?!">
+
+
+
+
+
+            <img class="img11" src="image/만화책/11.webp" data-text="쿠로누마 사와코는 밝고 쉽게 감동하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            그녀들은 카제하야를 좋아하는 사와코를 항상 응원해준다.
+            
+            하지만 워낙 오랫동안 사람들에게 배척당해온 사와코는 카제하야의 고백을 있는 그대로 받아들이지 못하고.
+            
+            그 모습에 카제하야는 사와코가 난처해하는 걸로 오해한다.
+            
+            요시다 일행의 위로에 힘을 얻은 사와코는 카제하야에게 고백!!
+            
+            마침내 서로의 마음을 확인한 두 사람은 교제를 시작한다.
+            
+            꿈같은 행복감 뒤에 누군가 울고 있을지도 모른다는 요시다의 말에 쿠루미의 존재를 떠올리는 사와코.
+            
+            쿠루미와 결판을 내고 싶지만-?!">
+
+
+
+            <img class="img12" src="image/만화책/12.webp" data-text="쿠로누마 사와코는 밝고 쉽게 감동하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생겼고.
+            
+            그들의 응원 속에 용기를 낸 결과 마침내 카제하야와 사귀게 된다. 
+            
+            라이벌 쿠루미나 카제하야를 좋아했던 애들의 마음을 헤아려 이 만남을 소중히 지켜가기로 결심한 사와코···.
+            
+            그런 와중에 하게 된 첫 데이트♡
+            
+            사와코는 긴장과 불안으로 어쩔 줄 몰라한다.
+            
+            도시락을 준비하기도 하고 지나버린 카제하야의 생일을 축하하기도 하고···
+            
+            그리고 마침내 주고 싶어도 주지 못했던 카제하야의 선물을 전해준다.
+            
+            두 사람 모두 서로의 마음이 기쁘기만 한데-.">
+
+
+            <img class="img13" src="image/만화책/13.webp" data-text="쿠로누마 사와코는 밝고 쉽게 감동하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생겼고.
+            
+            그들의 응원 속에 용기를 낸 결과 마침내 카제하야와 사귀게 된다. 
+            
+            두근두근 첫 데이트를 무사히 마치고.
+            
+            손도 잡은 두 사람.
+            
+            우연히 그 모습을 사와코의 엄마에게 들키는 바람에 카제하야는 사와코네 집에서 저녁을 먹게 된다!
+            
+            사와코를 아끼는 아빠에게도 인정받으며 드디어 공인커플이 된 두 사람♡
+            
+            한편 사와코는 마음이 잘 맞는 요시다와 야노의 첫 만남에 대한 얘기도 듣는데-?!">
+
+
+
+
+            <img class="img14" src="image/만화책/14.webp" data-text="쿠로누마 사와코는 밝고 쉽게 감동하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생겼고.
+            
+            그들의 응원 속에 용기를 낸 결과 마침내 카제하야와 사귀게 된다. 
+            
+            첫 데이트. 양가 부모님께 인사··· 등등 두 사람 사이는 점점 가까워지는데···.
+            
+            2학기가 시작되고 얼마 안 있어 다른 반 남자애에게 고백을 받는 야노는 그 자리에서 오케이를 해버린다.
+            
+            대망의 오키나와 수학여행 스타트!!
+            
+            모두가 시끌벅적한 와중 사와코는 야노에게 언제 모기를 좋아하게 됐냐는 소박한 질문을 던지지만 야노는 그 답을 얼버무린다···.
+            
+            한편 류의 방에 다른 반 여자애가 찾아와선-?!">
+
+
+
+
+
+            <img class="img15" src="image/만화책/15.webp" data-text="쿠로누마 사와코(16)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생겼고.
+            
+            그들의 응원 속에 용기를 낸 결과 마침내 카제하야와 사귀게 된다. 
+            
+            2학기 시작 직후 다른 반 남자애에게 고백을 받은 야노는 그 자리에서 오케이를 한다.
+            
+            그리고 대망의 오키나와 수학여행 스타트!!
+            
+            서로의 사진을 찍으며 사와코와 카제하야는 점점 거리를 좁혀가고···
+            
+            마침내 키스 직전까지 간다!!
+            
+            한편 어릴 때부터 함께 자란 류에게 고백을 받고 동요를 감추지 못하는 요시다.
+            
+            야노는 모기가 자신을 쉬운 여자로 생각하고 사귀기 시작했다는 걸 알고 헤어진다···.
+            
+            그때 마침 나타난 켄토에게 야노는 자신도 모르게 눈물을···.
+            
+            저마다 다른 마음을 품은 채 수학여행은 끝이 나고 새로운 계절이 시작된다.">
+
+
+
+
+
+
+
+            <img class="img16" src="image/만화책/16.webp" data-text="쿠로누마 사와코(16)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            그러던 중 오키나와 수학여행에서 요시다는 소꿉친구 류에게 고백을 받고.
+            
+            사와코는 카제하야와의 키스 직전까지 갔다가 미수에 그치는가 하면 야노는 남친과 헤어지는 등 저마다 큰 사건을 겪는다.
+            
+            수학여행이 끝나고 어딘가 어색해진 사와코와 카제하야.
+            
+            야노는 켄토의 자상한 접근에 어쩔 줄 몰라하는데···.
+            
+            한편 요시다는 줄곧 남매처럼 강한 끈으로 이져 온 소중한 두 사람 사이가 끝나버렸다며 류의 고백을 탓한다.
+            
+            그런 요시다에게 류는 '끝내야 새로 시작할 수 있다'고 말하는데?!">
+
+
+
+
+
+
+
+            <img class="img17" src="image/만화책/17.webp" data-text="쿠로누마 사와코(16)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            그리고 찾아온 오키나와 수학여행!!
+            
+            하지만 수학여행 이후 요시다는 소꿉친구 류와의 관계 변화에 고민하고. 야노는 자신에게 진심(?)으로 다가오는 켄토에게 당황한다.
+            
+            사와코는 카제하야와의 키스 직전까지 가지만.
+            
+            오히려 어색해지고 불안한 마음에 어쩔 줄 몰라 한다.
+            
+            계절은 겨울로 접어들어 카제하야와 사귄 후 처음으로 크리스마스를 맞는 사와코.
+            
+            저마다의 생각을 가슴에 품고 파티가 시작되는데?!">
+
+
+
+
+
+
+            <img class="img18" src="image/만화책/18.webp" data-text="쿠로누마 사와코(16)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            그리고 찾아온 오키나와 수학여행!!
+            
+            거기서 사와코와 친구들의 사랑에도 변화의 조짐이···?!
+            
+            카제하야와 키스 직전까지 갔다가 오히려 어색해진 사와코.
+            
+            불안감을 안은 채 계절은 겨울을 향해 간다.
+            
+            반 주최 크리스마스파티에 참가한 사와코와 친구들의 사랑은 큰 진전을 보이고.
+            
+            돌아오는 길 드디어 카제하야는 사와코에게 키스를!!
+            
+            그동안 줄곧 억눌렀던 두 사람의 마음이 하나가 되는 순간이었다.">
+
+
+
+
+
+
+
+            <img class="img19" src="image/만화책/19.webp" data-text="쿠로누마 사와코(16)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            수학여행에선 사와코와 친구들의 사랑에도 변화의 조짐이···?!
+            
+            하지만 카제하야와 키스 직전까지 갔다가 오히려 어색해진 사와코는 불안감을 안은 채 두 번째 겨울을 맞이한다.
+            
+            반 주최 크리스마스 파티에서 돌아오는 길.
+            
+            드디어 카제하야가 사와코에게 키스를!!
+            
+            두 사람은 서로의 마음을 확인하면서 불안감은 단숨에 해소된다♡.
+            
+            다음 날 사와코네 집에서는 여자들끼리 모여 서로의 사랑 얘기로 이야기꽃을 피우고.
+            
+            남자 셋도 불러서 파티를 연다!!
+            
+            사와코 부모님도 딸의 서앙을 절절히 느끼는데-.">
+
+
+
+
+
+            <img class="img20" src="image/만화책/20.webp" data-text="쿠로누마 사와코(16)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            요시다&야노의 응원을 받으면서도 처음 하는 사랑에 쩔쩔매며 불안해하던 사와코는 두 번째 크리스마스 파티에서 돌아오는 길에 카제하야와 첫 키스!!
+            
+            두 사람의 거리는 단숨에 가까워지고♡
+            
+            그런 사와코 일행도 이제 슬슬 진로를 생각해야 할 시기가 다가온다!
+            
+            고향에서 취직하기를 바라는 사와코지만.
+            
+            담임인 아라이(핀)에게서 '넌 어딜 가든, 뭘 하든 정말 열심히 한다'는 격려를 받고 마음이 흔들리는데···.
+            
+            그러던 중 카제하야의 학부모 면담이 끝나기를 기다리던 사와코 귀에 카제하야 아버지의 호통소리가-?!">
+
+
+
+
+
+
+
+            <img class="im21" src="image/만화책/21.webp" data-text="쿠로누마 사와코(16)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            치즈루&아야네와 서로를 응원하고, 때로는 혼란스러움 속에서 저마다의 사랑을 키워가는 와중.
+            
+            사와코에게도 진로문제를 고민해야 할 시기가 다가온다!
+            
+            근처에서 취직하기를 바라지만, 담임인 아라이(핀)의 격려를 받고 '교사'에 대한 꿈을 꾸기 시작한 사와코.
+            
+            카제하야도 아버지에 대한 복잡한 심정을 사와코에게 고백하면서 마음에 변화가 찾아오고···.
+            
+            그러던 중 맞이한 빅이벤트, 두 번째 밸런타인데이♡
+            
+            이번에도 학교에서 초콜릿을 주지 못하자 사와코는 큰 맘 먹고 카제하야의 집으로 찾아가 겨우 건네는데···.">
+
+
+
+
+
+
+            <img class="img22" src="image/만화책/22.webp" data-text="쿠로누마 사와코(17)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            그러던 중, 사와코 일행에게도 진로문제를 고민해야 할 시기가 다가온다!
+            
+            사와코는 카제하야와 함께 고향 지역의 대학을 희망하지만, 담임인 아라이(핀)는 삿포로의 D교육대를 추천한다.
+            
+            그리고 류는 야구를 계속하기 위해 고향을 떠나 진학을 하기로 결심.
+            
+            고3이 된 지금, 앞으로 1년 후면 모두 고향을 떠난다···고 생각하니 치즈루의 마음은 쓸쓸함과 불안으로 가득해진다.
+            
+            한편 도쿄 소재의 대학에 대한 꿈을 버리지 못하고 고민하는 아야네의 모습에 켄토는 당황하는데-.">
+
+
+
+
+
+
+            <img class="img23" src="image/만화책/23.webp" data-text="쿠로누마 사와코(17)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            그러던 중, 사와코 일행에게도 진로문제를 고민해야 할 시기가 다가온다!
+            
+            어릴 때부터 늘 함께 해온 류가 진학을 위해 고향을 떠나려 한다는 것이 못내 서운해서 솔직하게 응원해주지 못하고 굄ㄴ하는 치즈루와,
+            
+            도쿄 소재의 대학을 가고 싶어하는 아야네의 마음을 알고 불안한 켄토.
+            
+            그리고 함께 근처 대학을 지망할 예정이던 사와코가 삿포로의 D교대를 염두에 두고 있다는 걸 알게된 뒤 잠자코 응원해주기로 결심한 카제하야···.
+            
+            저마다의 사랑에 시련이 닥치는데-.">
+
+
+
+
+            <img class="img24" src="image/만화책/24.webp" data-text="쿠로누마 사와코(17)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            고3이 되어 진로를 결정할 시기를 맞은 사와코와 친구들.
+            
+            저마다 장래에 대한 기대감과 불안감을 품고 있는 와중.
+            
+            아야네는 도쿄 대학에 진학하고 싶은 마음과 켄토 사이에서 번민을 거듭한다.
+            
+            하지만 켄토에게 가지 말란 말을 듣는 순간 켄토를 거부해버리고 만다.
+            
+            그런 자신을 끊임없이 탓하는 아야네를 구해준 것을 치즈루와 사와코의 존재였다.
+            
+            두 사람 덕분에 솔직하게 자신의 꿈을 인정하게 된 아야네는 켄토에게도 진심을 전하고 마침내 이별을 고한다-.">
+
+
+
+
+
+
+            <img class="img25" src="image/만화책/25.webp" data-text="쿠로누마 사와코(17)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            고3이 되어 진로를 결정할 시기를 맞은 사와코와 친구들.
+            
+            아야네는 켄토와 헤어져 도쿄의 대학에 가기로 결정한다.
+            
+            하지만 교대를 목표로 하는 쿠루미에게 무심결에 '같이 가자'는 말을 하고만 사와코···.
+            
+            그러던 중 학원제에서의 활약을 인정바는 사와코는 모두에게서 MVP상을 받는다!!
+            
+            학원제가 끝난 후 교대에 가기로 결심하지 않았냐는 카제하야의 말에 사와코는 아니라고 부정하지 못하는데-.">
+
+
+
+
+
+
+            <img class="img26" src="image/만화책/26.webp" data-text="쿠로누마 사와코(17)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            고3이 되어 진로를 결정할 시기를 맞은 사와코와 친구들.
+            
+            류와 떨어져야 한다는 불안감 때문에 솔직하게 행동하지 못했던 치즈루는 '류에게 돌아올 곳이 되어주자'는 각오를 정한 뒤에야 비로소 진심으로 류를 응원하게 된다!
+            
+            한편, 카제하야와 같은 대학에 가기로 결정했던 사와코는 교대에 대한 미련도 끊지 못하고···.
+            
+            그런 사와코의 마음을 헤아려 '난 신경쓰지 말라'는 카제하야에게 사와코는 '왜 그렇게 어른인척하냐'며 처음으로 싸우게 되는데-?!">
+
+
+
+
+
+
+            <img class="img27" src="image/만화책/27.webp" data-text="쿠로누마 사와코(17)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            고3이 되고 카제하야와 같은 대학이냐, 삿포로의 교대냐를 두고 고민하는 사와코.
+            
+            그 때문에 카제하야와도 싸우게 되지만, 서로에게 솔직한 마음을 전하며 두 사람 사이는 더욱 단단해진다···.
+            
+            그러던 중 쿠루미가 사와코네 집에서 하룻밤을 묵으며 그동안의 일을 사과한다.
+            
+            돌아가는 길에 쿠루미는 사와코에게 '같이 교대에 가자'고 말하는데···.
+            
+            한편 핀 선생님 생각이 머리에서 떠나지 않는 아야네 앞에 우연히 당사자가 나타난다!!
+            
+            놀람과 당혹감을 감추지 못하는 아야네는?!">
+
+
+
+
+
+
+            <img class="img28" src="image/만화책/28.webp" data-text="쿠로누마 사와코(17)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            고3 겨울, 각자 지망대학도 결정되고, 추천입학도 결과가 나오기 시작한다.
+            
+            그러던 중 사와코는 카제하야와 하루를 보낸 후 교대에 응시하기로 했음을 고백하고, 카제하야는 그런 사와코를 진심으로 응원해준다.
+            
+            한편, 핀에 대한 연심이 쌓여가는 아야네의 마음을 알아챈 치즈루와 사와코.
+            
+            '아라이 선생님을 좋아하느냐'는 사와코의 질문에 뜻하지 않게 눈물이 왈칵 치밀어 멈출 수 없게 된 아야네.
+            
+            모두에게 비밀로 한 채 졸업할 생각이었지만-?!">
+
+
+
+
+
+
+
+            <img class="img29" src="image/만화책/29.webp" data-text="쿠로누마 사와코(17)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            고3이 되면서 진로를 결정한 사와코는 카제하야와 같은 고향의 대학이 아닌 삿포로의 교대에 가기로 결심을 굳힌다.
+            
+            설 전날은 사와코의 18번째 생일.
+            
+            사와코와 카제하야는, 밤에 만날 약속을 하지만 폭설 때문에 사와코는 갑자기 카제하야네 집에 묵게 되고···
+            
+            선물로 반지를 받은 사와코는 감격한다!
+            
+            다음 날 새해 첫 참배에서 핀 선생님에게 마음이 있는 아야네는 '합격하면 상을 달라'고 무심코 말해버리는데···.">
+
+
+
+
+
+
+
+
+            <img class="img30" src="image/만화책/30.webp" data-text="쿠로누마 사와코(17)는 밝고 감동을 잘하는 성격이지만 음산한 외모 때문에 '사다코'라 불리며 공포의 대상이 되어 왔다.
+            
+            그러나 같은 반 카제하야 덕분에 처음으로 야노와 요시다라는 친구가 생기고.
+            
+            동경하던 카제하야와도 사귀게 되면서 매일 가슴 설레는 나날을 보낸다.
+            
+            고3, 드디어 본격적인 수험에 돌입한 사와코와 친구들.
+            
+            도쿄 사립대에 시험 친 아야네는 한 발 앞서 보기 좋게 합격.
+            
+            고향을 떠나는 사와코와 고향에 남는 카제하야.
+            
+            그리고 쿠루미를 비롯한 국립대학팀 역시 시험을 끝내고, 합격발표만 남은 상태.
+            
+            하지만 그 전에 졸업식이 기다리는데···.
+            
+            졸업식 당일, 사와코가 반 친구들의 얼굴을 본떠서 만든 마스코트를 나눠주자 다들 감격하며 가슴에 달고 졸업식에 참석한다.
+            
+            자신의 말로 감사의 마음을 담아 답사를 낭독하는 사와코.
+            
+            고등학교 마지막 날은 반 전원이 모여 사진을 찍고 끝이 난다.">
+
+
+
+
+
+
+        </div>
+
+
+
+
+    </section>
+
+    <!-- 모달 -->
+    <div id="myModal" class="modal">
+
+        <!-- 닫기 버튼 -->
+        <span class="close">&times;</span>
+
+        <!-- 모달 콘텐츠 (이미지) -->
+        <img class="modal-content" id="img01">
+
+        <!-- 모달 캡션 (이미지 설명) -->
+        <div id="caption"></div>
+    </div>
+
+
+
+    <!-- ================================================================================================================================================================== -->
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-inner">
+            <p>いつかあなたに届くことができるか</p>
+            <a href="index.html" class="footer-logo">
+                <img src="image/logo_호버.png" alt="Logo">
+            </a>
+            <p class="small-text">ⓒ 2024 Jang Sohyeon All Right Reserved</p>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+
+    <!-- ====================================================================================================================================== -->
+
+    <script>
+
+        // 메뉴 토글
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menuClose = document.querySelector('.menu-close');
+            const nav = document.querySelector('nav');
+
+            menuToggle.addEventListener('click', function () {
+                nav.classList.toggle('active');
+                // 클릭할 때마다 active 클래스를 토글하여 메뉴가 보이거나 숨겨지도록 함
+            });
+
+            menuClose.addEventListener('click', function () {
+                nav.classList.remove('active');
+            });
+        });
+
+
+        // <!-- ====================================================================================================================================== -->
+
+        const slider = document.getElementById('book-slider');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let currentIndex = 0;
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < slider.children.length - 1) {
+                currentIndex++;
+                updateSlider();
+            }
+        });
+
+        function updateSlider() {
+            const bookWidth = document.querySelector('.book').offsetWidth;
+            slider.style.transform = `translateX(-${currentIndex * (bookWidth + 10)}px)`;
+        }
+
+
+        // <!-- ====================================================================================================================================== -->
+
+        // 모달 기능 구현
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("img01");
+        const captionText = document.getElementById("caption");
+        const images = document.querySelectorAll("#book2 img");
+        const span = document.getElementsByClassName("close")[0];
+
+        images.forEach(image => {
+            image.onclick = function () {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerText = this.getAttribute('data-text'); // 이미지의 data-text 속성을 사용하여 캡션 설정
+            }
+        });
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

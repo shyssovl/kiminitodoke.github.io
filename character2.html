@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐릭터 소개</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="font.css">
+    <link rel="stylesheet" href="character.css">
+
+    <style>
+        body {
+            background-image: url("image/배경/모눈_파랑.png");
+        }
+
+        
+
+
+        .character1 img:hover {
+            content: url("image/캐릭터프로필/카제하야-호버.png");
+
+        }
+
+     
+
+        .hover-text1 {
+           
+            color: #299fff;
+            
+        }
+
+        .hover-text1::before {
+            content: "카제하야 쇼타";
+        }
+
+        .hover-text1:hover::before {
+            content: "風早 翔太";
+        }
+
+    
+
+        .info li {
+            line-height: 1.8em;
+            list-style-image: url('image/배경/점-파랑.png'); 
+        }
+
+       
+    </style>
+</head>
+
+
+
+
+<body>
+    <!-- ============================================================================================================================================================= -->
+    <!-- 헤더 -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="image/logo.png" alt="Logo">
+        </a>
+        <div class="nav1">
+            <nav>
+                <ul>
+                    <li><a href="summary.html">줄거리</a></li>
+                    <li><a href="character.html">캐릭터소개</a></li>
+                    <li><a href="stillcut.html">스틸컷</a></li>
+                    <li><a href="book.html">만화책</a></li>
+                    <li><a href="recommend.html">비슷한작품추천</a></li>
+                </ul>
+                <div class="menu-close">Close</div>
+
+
+                <div class="nav-inner">
+                    <p>いつかあなたに届くことができるか</p>
+                    <a href="index.html" class="footer-logo">
+                        <img src="image/logo_호버.png" alt="Logo">
+                    </a>
+                    <p class="small-text">ⓒ 2024 Jang Sohyeon All Right Reserved</p>
+                </div>
+            </nav>
+        </div>
+
+        <div class="menu-toggle">MENU</div>
+    </header>
+
+    <!-- ========================================================================================================================================================= -->
+    <ul id="sub">
+        <li class="sub_menu" id="pink"><a href="character1.html">쿠로누마 사와코</a></li>
+        <li class="sub_menu" id="blue"><a href="character2.html">카제하야 쇼타</a></li>
+        <li class="sub_menu" id="yellow"><a href="character3.html">요시다 치즈루</a></li>
+        <li class="sub_menu" id="orenge"><a href="character4.html">야노 아야네</a></li>
+        <li class="sub_menu" id="green"><a href="character5.html">사나다 류</a></li>
+        <li class="sub_menu" id="purple"><a href="character6.html">쿠루미자와 우메</a></li>
+        <li class="sub_menu" id="red"><a href="character7.html">아라이 카즈이치</a></li>
+        <li class="sub_menu" id="violet"><a href="character8.html">미우라 켄토</a></li>
+    </ul>
+
+
+
+
+
+
+    <!-- =============================================================================================================================== -->
+    <!-- 섹션1 -->
+    <section id="section1">
+        <div class="character1">
+            <img src="image/캐릭터프로필/카제하야.png" alt="사와코">
+            <div class="text-box">
+                <h3 class="hover-text1"></h3>
+                <ul class="info">
+                    <li>생일: 5월 15일</li>
+                    <li>별자리: 황소자리</li>
+                    <li>혈액형: O형</li>
+                    <li>키: 175cm</li>
+                    <li>몸무게: 63kg</li>
+                    <li>좌우명: 오로지 진실만을 위해 나아갈 것</li>
+                    <li>좋아하는 색: 파랑</li>
+                    <li>취미: 반 애들과 놀거나 몸을 움직이는 일. 그리고 애완견인 강드로와 산책.</li>
+                    <li>특기: 운동</li>
+                </ul>
+                <!-- <p class="text1">dd</p> -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <div class="back-container">
+        <a href="character.html" class="back">
+            <h1>
+                <span class="swing-text">돌</span><span class="swing-text">아</span><span class="swing-text">가</span><span class="swing-text">기</span>
+            </h1>
+        </a>
+    </div>
+
+
+
+
+    <!-- ================================================================================================================================================================== -->
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-inner">
+            <p>いつかあなたに届くことができるか</p>
+            <a href="index.html" class="footer-logo">
+                <img src="image/logo_호버.png" alt="Logo">
+            </a>
+            <p class="small-text">ⓒ 2024 Jang Sohyeon All Right Reserved</p>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+    <script>
+        // 메뉴 토글
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menuClose = document.querySelector('.menu-close');
+            const nav = document.querySelector('nav');
+
+            menuToggle.addEventListener('click', function () {
+                nav.classList.toggle('active');
+                // 클릭할 때마다 active 클래스를 토글하여 메뉴가 보이거나 숨겨지도록 함
+            });
+
+            menuClose.addEventListener('click', function () {
+                nav.classList.remove('active');
+            });
+        });
+
+    </script>
+</body>
+
+</html>

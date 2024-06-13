@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>러브 콤플렉스</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="font.css">
+
+    <style>
+        body {
+            text-align: center;
+            background-image: url(image/배경/수채화.png);
+            background-size: cover;
+            /* 화면 크기에 맞게 이미지를 조정합니다. */
+            background-repeat: no-repeat;
+            /* 이미지를 반복하지 않도록 설정합니다. */
+            background-position: center center;
+            /* 이미지를 중앙에 위치시킵니다. */
+        }
+        #end img {
+            width: 100%;
+            /* 이미지를 부모 요소의 너비에 맞게 조정 */
+            height: auto;
+            /* 이미지의 비율을 유지 */
+            display: block;
+            /* 이미지를 블록 요소로 설정하여 여백을 제거 */
+        }
+
+        /* ======================================================================== */
+        #sub {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            padding: 0;
+        }
+
+        .sub_menu {
+            list-style: none;
+            margin: 0 10px;
+            background-image: url("image/배경/li-백그라운드.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 50px;
+            position: relative;
+            color: #ff93b7;
+            font-family: "NeoDunggeunmo";
+        }
+
+        .sub_menu a {
+            color: #ff93b7;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .sub_menu a:hover {
+            color: #ffffff;
+        }
+
+
+
+        /* =========================================================================================== */
+
+        #section1 {
+            text-align: center;
+            margin: 100px 0 200px 0;
+            /* background-color: aqua; */
+        }
+
+        .content1 img {
+            padding-bottom: 30px;
+            width: 80%;
+            max-width: 400px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .content1 h1 {
+            font-size: 40px;
+            font-family: "NeoDunggeunmo";
+            margin-bottom: 10px;
+        }
+
+        .content1 h1:hover {
+            color: #ff93b7;
+        }
+
+        .low-text {
+            font-size: 16px;
+            color: #8c8c8c;
+
+        }
+
+
+
+        #line-spacing1 {
+            line-height: 2;
+            background-color: #ff93b7;
+            padding: 100px 0;
+            color: #ffffff;
+        }
+
+
+
+
+        /* =============================================================================================================================================== */
+        /* 섹션3 */
+        #section3 {
+            margin: 300px 0;
+        }
+
+        #section3 h1 {
+            margin-bottom: 40px;
+            color: #ff93b7;
+            font-family: "NeoDunggeunmo";
+
+        }
+
+        .slider {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            /* 슬라이더의 높이를 300px로 설정 */
+        }
+        
+
+        .slide-track {
+            display: flex;
+            width: calc(100% * 12);
+            /* 이미지 개수의 두 배로 설정 */
+            animation: scroll 48s linear infinite;
+            /* 애니메이션 시간도 두 배로 설정 */
+            background-image: url("image/꾸미기/슬라이드-배경.png");
+        }
+
+        .slide {
+            width: calc(auto / 12);
+            /* 이미지 개수의 두 배로 설정 */
+            flex-shrink: 0;
+            height: 100%;
+            /* 이미지 높이를 300px로 설정 */
+            object-fit: cover;
+            /* 이미지가 컨테이너를 채우도록 설정 */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-100% / 2));
+                /* 전체 슬라이드의 절반만큼 이동 */
+            }
+        }
+
+
+
+        /* =============================================================================================================================================== */
+        /* 섹션4 */
+
+        #section4 {
+            margin: 200px 50px 300px 50px;
+        }
+
+        @keyframes swing {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(20deg);
+            }
+
+            50% {
+                transform: rotate(0deg);
+            }
+
+            75% {
+                transform: rotate(-20deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        #section4 h1 {
+            margin-bottom: 50px;
+            color: #ff93b7;
+            font-family: "NeoDunggeunmo";
+            font-size: 32px;
+
+
+        }
+
+        .swing-text {
+            display: inline-block;
+            animation: swing 2s infinite;
+        }
+
+        #section4 video {
+            margin: 0 50px;
+            height: 200px;
+            transition: transform 0.3s ease;
+            border-radius: 22px;
+        }
+
+        #section4 video:hover {
+            transform: scale(1.5);
+        }
+
+
+        .video1 {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 20px;
+            /* 비디오 블록 간의 간격 조정 */
+        }
+
+        .video1-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .video1-item img {
+            margin-bottom: 10px;
+            /* 이미지와 비디오 간의 간격 조정 */
+        }
+
+
+
+
+        /* ============================================================================== */
+        /* 반응형 */
+ 
+        @media (max-width: 1200px) {
+            .video1 {
+                flex-direction: column;
+            }
+
+            #section4 video {
+                margin: 20px 0;
+                width: 80%;
+                height: auto;
+            }
+
+            #section4 h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #section4 {
+                margin: 100px 20px;
+            }
+
+            #section4 video {
+                width: 100%;
+                height: auto;
+            }
+
+            .sub_menu {
+                padding: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #section4 {
+                margin: 50px 10px;
+            }
+
+            #section4 h1 {
+                font-size: 24px;
+            }
+
+            .content1 h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+
+
+
+
+
+
+
+
+
+<body>
+    <!-- ============================================================================================================================================================= -->
+    <!-- 헤더 -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="image/logo.png" alt="Logo">
+        </a>
+        <div class="nav1">
+            <nav>
+                <ul>
+                    <li><a href="summary.html">줄거리</a></li>
+                    <li><a href="character.html">캐릭터소개</a></li>
+                    <li><a href="stillcut.html">스틸컷</a></li>
+                    <li><a href="book.html">만화책</a></li>
+                    <li><a href="recommend.html">비슷한작품추천</a></li>
+                </ul>
+                <div class="menu-close">Close</div>
+
+
+                <div class="nav-inner">
+                    <p>いつかあなたに届くことができるか</p>
+                    <a href="index.html" class="footer-logo">
+                        <img src="image/logo_호버.png" alt="Logo">
+                    </a>
+                    <p class="small-text">ⓒ 2024 Jang Sohyeon All Right Reserved</p>
+                </div>
+            </nav>
+        </div>
+
+        <div class="menu-toggle">MENU</div>
+    </header>
+
+    <!-- ========================================================================================================================================================= -->
+
+    <ul id="sub">
+        <li class="sub_menu"><a href="recommend.html">아오하라이드</a></li>
+        <li class="sub_menu"><a href="recommend2.html">스킵과 로퍼</a></li>
+        <li class="sub_menu"><a href="recommend3.html">러브 콤플렉스</a></li>
+    </ul>
+
+
+
+
+
+    <!-- =================================================================================================== -->
+    <section id="section1">
+        <div class="content1">
+            <img src="image/꾸미기/하트까딱까딱.png">
+            <img src="image/러브 콤플렉스/대표.jpg" alt="아오하라이드">
+            <h1>러브 콤플렉스</h1>
+            <p class="low-text">장르 | 순정 </p>
+        </div>
+    </section>
+
+
+
+    <!-- =================================================================================================== -->
+    <section id="end">
+        <img src="image/꾸미기/구분선-핑크노랑.png">
+    </section>
+
+    <section id="section2">
+        <p id="line-spacing1">러브★콤플렉스는 한 소년과 한 소녀 사이의 러브 스토리이다. <br>
+            소녀, 코이즈미 리사는 키가 172cm-평균 일본인 소녀보다 훨씬 큰-이다. <br>
+            소년, 오오타니 아츠시는 키가 156cm-평균 일본인 소년의 키 이하인-이다. <br>
+            이 때문에, 그들은 키 차이가 비슷한 유명한 만담 콤비의 이름을 딴 "올 한신 쿄진"으로 불린다.<br>
+            여름 보충학습 기간 동안 다른 반의 스즈키 료지라는 매우 키 큰 학생이 나타나고, <br>
+            키가 컸기 때문에 과거에 남자친구 운이 나빴던 리사는 바로 그에게 반해버린다. <br>
+            아츠시도 마찬가지로 좋아하는 소녀가 있어서, 리사와 아츠시는 그들의 차이점을 잠시 제쳐두기로 결정하고 <br>
+            중요한 사랑을 얻기 위해 서로 돕는다.<br>
+            그러나 그들이 서로를 더 잘 알아가면서, 리사는 아츠시에게 매력을 느끼기 시작하고, <br>
+            거기에서부터 그녀의 애정 생활은 복잡해지기 시작한다.<br>
+        </p>
+    </section>
+    <section id="end">
+        <img src="image/꾸미기/구분선-핑크노랑.png">
+    </section>
+
+    <!-- =================================================================================================== -->
+
+    <section id="section3" class="slider">
+        <!-- <img src="image/꾸미기/하트까딱까딱.png">
+        <h1>사진모음</h1> -->
+        <div class="slide-track">
+            <img src="image/러브 콤플렉스/1.png" class="slide">
+            <img src="image/러브 콤플렉스/2.png" class="slide">
+            <img src="image/러브 콤플렉스/3.png" class="slide">
+            <img src="image/러브 콤플렉스/4.png" class="slide">
+            <img src="image/러브 콤플렉스/5.png" class="slide">
+            <img src="image/러브 콤플렉스/6.png" class="slide">
+
+            <img src="image/러브 콤플렉스/1.png" class="slide">
+            <img src="image/러브 콤플렉스/2.png" class="slide">
+            <img src="image/러브 콤플렉스/3.png" class="slide">
+            <img src="image/러브 콤플렉스/4.png" class="slide">
+            <img src="image/러브 콤플렉스/5.png" class="slide">
+            <img src="image/러브 콤플렉스/6.png" class="slide">
+            
+        </div>
+    </section>
+
+    <section id="end">
+        <img src="image/꾸미기/구분선-핑크노랑.png">
+    </section>
+
+
+
+
+
+
+
+    <!-- =================================================================================================== -->
+    <section id="section4">
+        <h1><span class="swing-text">영</span><span class="swing-text">상</span><span class="swing-text">모</span><span
+                class="swing-text">음</span></h1>
+        <div class="video1">
+            <div class="video1-item">
+                <img src="image/꾸미기/하트까딱까딱.png">
+                <video controls>
+                    <source src="video/러브 콤플렉스1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video1-item">
+                <img src="image/꾸미기/하트까딱까딱.png">
+                <video controls>
+                    <source src="video/러브 콤플렉스2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video1-item">
+                <img src="image/꾸미기/하트까딱까딱.png">
+                <video controls>
+                    <source src="video/러브 콤플렉스3.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- ================================================================================================================================================================== -->
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-inner">
+            <p>いつかあなたに届くことができるか</p>
+            <a href="index.html" class="footer-logo">
+                <img src="image/logo_호버.png" alt="Logo">
+            </a>
+            <p class="small-text">ⓒ 2024 Jang Sohyeon All Right Reserved</p>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+    <!-- =================================================================================================== -->
+    <script>
+        // 메뉴 토글
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menuClose = document.querySelector('.menu-close');
+            const nav = document.querySelector('nav');
+
+            menuToggle.addEventListener('click', function () {
+                nav.classList.toggle('active');
+                // 클릭할 때마다 active 클래스를 토글하여 메뉴가 보이거나 숨겨지도록 함
+            });
+
+            menuClose.addEventListener('click', function () {
+                nav.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

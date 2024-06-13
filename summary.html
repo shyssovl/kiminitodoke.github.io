@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="=UTF-8">
+    <title>줄거리</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="font.css">
+    <link rel="stylesheet" href="scroll_snap.css">
+
+    <style>
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            text-align: center;
+            padding: 0;
+   
+        }
+        #end img {
+            width: 100%;
+            /* 이미지를 부모 요소의 너비에 맞게 조정 */
+            height: auto;
+            /* 이미지의 비율을 유지 */
+            display: block;
+            /* 이미지를 블록 요소로 설정하여 여백을 제거 */
+        }
+
+        #sub {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            padding: 0;
+        }
+
+        .sub_menu {
+            list-style: none;
+            margin: 0 10px;
+            background-image: url("image/배경/li-백그라운드.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 50px;
+            position: relative;
+            color: #ff93b7;
+            font-family: "NeoDunggeunmo";
+        }
+
+        .sub_menu a {
+            color: #ff93b7;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .sub_menu a:hover {
+            color: #ffffff;
+        }
+
+        /* =================================================================================================== */
+
+        .container {
+            overflow: auto;
+            scroll-snap-type: y mandatory;
+            height: 100vh;
+            font-family: 'Pretendard';
+        }
+
+        #section1 {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            scroll-snap-align: start;
+        }
+
+        .back {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .circle, .square {
+            color: rgb(0, 0, 0);
+            font-size: 24px;
+            background: rgb(255, 255, 255);
+            padding: 10px 20px;
+            z-index: 1;
+            border: solid 2px #000;
+            padding: 40px 80px;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+
+        #sence1 {
+            position: absolute;
+            top: 70%;
+            left: 70%;
+        }
+
+        #sence2 {
+            position: absolute;
+            top: 70%;
+            left: 55%;
+        }
+
+        #sence3 {
+            position: absolute;
+            top: 70%;
+            left: 20%;
+        }
+
+        #sence4 {
+            position: absolute;
+            top: 70%;
+            left: 65%;
+        }
+
+        #sence5 {
+            position: absolute;
+            top: 10%;
+            left: 38%;
+        }
+        #sence6 {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+        }
+        #sence7 {
+            position: absolute;
+            top: 70%;
+            left: 60%;
+        }
+        #sence8 {
+            position: absolute;
+            top: 40%;
+            left: 1%;
+        }
+        #sence9 {
+            position: absolute;
+            top: 70%;
+            left: 60%;
+        }
+        #sence10 {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+        }
+
+        /* 모바일 사이즈 */
+        @media (max-width: 600px) {
+            body {
+                text-align: center;
+            }
+
+            #sub {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .sub_menu {
+                margin: 10px 0;
+                padding: 50px;
+            }
+
+            .container {
+                height: auto;
+            }
+
+            #section1 {
+                height: auto;
+            }
+
+            .circle, .square {
+                font-size: 16px;
+                padding: 20px 40px;
+            }
+
+            .circle {
+                padding: 20px 40px;
+            }
+
+            #sence1, #sence2, #sence3, #sence4, #sence5 {
+                position: static;
+                margin: 10px 0;
+            }
+
+            .back {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* 추가적인 반응형 디자인 */
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .circle, .square {
+                font-size: 20px;
+                padding: 30px 60px;
+            }
+
+            .circle {
+                padding: 30px 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================================================================================================================================= -->
+    <!-- 헤더 -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="image/logo.png" alt="Logo">
+        </a>
+        <div class="nav1">
+            <nav>
+                <ul>
+                    <li><a href="summary.html">줄거리</a></li>
+                    <li><a href="character.html">캐릭터소개</a></li>
+                    <li><a href="stillcut.html">스틸컷</a></li>
+                    <li><a href="book.html">만화책</a></li>
+                    <li><a href="recommend.html">비슷한작품추천</a></li>
+                </ul>
+                <div class="menu-close">Close</div>
+
+
+                <div class="nav-inner">
+                    <p>いつかあなたに届くことができるか</p>
+                    <a href="index.html" class="footer-logo">
+                        <img src="image/logo_호버.png" alt="Logo">
+                    </a>
+                    <p class="small-text">ⓒ 2024 Jang Sohyeon All Right Reserved</p>
+                </div>
+            </nav>
+        </div>
+
+        <div class="menu-toggle">MENU</div>
+    </header>
+
+    <!-- ========================================================================================================================================================= -->
+
+
+    <ul id="sub">
+        <li class="sub_menu"><a href="summary.html">1기</a></li>
+        <li class="sub_menu"><a href="summary2.html">2기</a></li>
+    </ul>
+
+
+    <section id="end">
+        <img src="image/꾸미기/구분선-핑크노랑.png">
+    </section>
+
+
+
+
+
+    <!-- =================================================================================================== -->
+    <div class="container">
+        <section id="section1">
+            <img class="back" src="image/줄거리/입학식1.png">
+            <p class="circle" id="sence1">고등학교 입학식 날,<br>길을 모르는 카제하야에게 길을 알려주는 사와코</p>
+        </section>
+        <section id="section1">
+            <img class="back" src="image/줄거리/1기/입학식.png">
+            <p class="circle" id="sence2">카제하야는 길을 알려준 사와코에게 고맙다고 말한다.</p>
+        </section>
+        <section id="section1">
+            <img class="back" src="image/줄거리/입학식2.png">
+            <p class="circle" id="sence3">누군가에게 고맙다는 말을 처음 들어본 사와코는</p>
+
+        </section>
+        <section id="section1">
+            <img class="back" src="image/줄거리/1기/입학식-웃는사와코.png">
+            <p class="square" id="sence4">웃으면서 고맙다고 말해준 카제하야의 말에 진심으로 행복해한다.</p>
+        </section>
+        <section id="section1">
+            <img class="back" src="image/줄거리/1기/같은반.png">
+            <p class="circle" id="sence5">그리고 둘은 같은 반이 되었다.</p>
+        </section>
+        <section id="section1">
+            <img class="back" src="image/줄거리/1기/사다코.png">
+            <p class="square" id="sence6">사와코에게 '사다코'라는 별명이 붙으며 <br> 반 친구들이 사와코를 피하게 되지만</p>
+        </section>
+        <section id="section1">
+            <img class="back" src="image/줄거리/1기/카제하야-친절.png">
+            <p class="square" id="sence7">카제하야만은 사와코를 피하지 않고 <br>친절히 대해준다.</p>
+        </section>
+        <section id="section1">
+            <img class="back" src="image/줄거리/1기/동경.png">
+            <p class="circle" id="sence8">사와코는 자신에게 허물없이 대해주는 <br>카제하야를 동경하게 된다.</p>
+        </section>
+        <section id="section1">
+            <img class="back" src="image/줄거리/1기/부끄-카제하야.png">
+            <p class="square" id="sence9">사실 카제하야는 입학식 그 날부터 <br>사와코에게 마음이 있었고,</p>
+        </section>
+        <section id="section1">
+            <img class="back" src="image/줄거리/1기/끝.png">
+            <p class="square" id="sence10">그 후 둘은 친구가 되며 이야기가 시작된다.</p>
+        </section>
+    </div>
+
+
+
+
+
+
+    <!-- ================================================================================================================================================================== -->
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-inner">
+            <p>いつかあなたに届くことができるか</p>
+            <a href="index.html" class="footer-logo">
+                <img src="image/logo_호버.png" alt="Logo">
+            </a>
+            <p class="small-text">ⓒ 2024 Jang Sohyeon All Right Reserved</p>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+    <!-- =================================================================================================== -->
+    <script>
+        // 메뉴 토글
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menuClose = document.querySelector('.menu-close');
+            const nav = document.querySelector('nav');
+
+            menuToggle.addEventListener('click', function () {
+                nav.classList.toggle('active');
+                // 클릭할 때마다 active 클래스를 토글하여 메뉴가 보이거나 숨겨지도록 함
+            });
+
+            menuClose.addEventListener('click', function () {
+                nav.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

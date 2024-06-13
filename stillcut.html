@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐릭터 소개</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="font.css" />
+
+    <style>
+        body {
+            background-image: url(image/배경/수채화.png);
+            background-size: cover;
+            /* 화면 크기에 맞게 이미지를 조정합니다. */
+            background-repeat: no-repeat;
+            /* 이미지를 반복하지 않도록 설정합니다. */
+            background-position: center center;
+            /* 이미지를 중앙에 위치시킵니다. */
+        }
+
+        #end img {
+            width: 100%;
+            /* 이미지를 부모 요소의 너비에 맞게 조정 */
+            height: auto;
+            /* 이미지의 비율을 유지 */
+            display: block;
+            /* 이미지를 블록 요소로 설정하여 여백을 제거 */
+        }
+
+
+
+
+
+
+        .stillcut1 {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin: 100px 0;
+        }
+
+        .floating-image {
+            width: 100%;
+            max-width: 1000px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .text1 {
+            max-width: 600px;
+            font-size: 1.2em;
+        }
+
+        .low-text1 {
+            font-size: 0.8em;
+            color: gray;
+            margin-top: 25px;
+            font-family: 'Pretendard';
+        }
+
+        .text-box1 {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        /* 섹션2 스타일 */
+        #section2 {
+            text-align: right;
+        }
+
+        .stillcut2 {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin: 100px 0;
+        }
+
+        .floating-image {
+            width: 100%;
+            max-width: 1000px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .text2 {
+            max-width: 600px;
+            font-size: 1.2em;
+        }
+
+        .low-text2 {
+            font-size: 0.8em;
+            color: gray;
+            margin-top: 25px;
+            font-family: sans-serif;
+        }
+
+        .text-box2 {
+            flex: 1;
+            min-width: 280px;
+            margin-left: 100px;
+        }
+
+        .text1 {
+            display: inline-block;
+         
+            color: #303030;
+            font-family: "NeoDunggeunmo";
+            font-size: 18px;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .text1::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 1px;
+            background-color: #ffe62b;
+            transform-origin: bottom right;
+            transform: scale(0, 1);
+            transition: transform 0.3s ease-out;
+        }
+
+        .text1:hover::after {
+            transform-origin: bottom left;
+            transform: scale(1, 2);
+        }
+
+
+
+        .text2 {
+            display: inline-block;
+         
+            color: #303030;
+            font-family: "NeoDunggeunmo";
+            font-size: 18px;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .text2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 1px;
+            background-color: #ffbd4a;
+            transform-origin: bottom right;
+            transform: scale(0, 1);
+            transition: transform 0.3s ease-out;
+        }
+
+        .text2:hover::after {
+            transform-origin: bottom left;
+            transform: scale(1, 2);
+        }
+
+        @media (max-width: 768px) {
+
+            .text1,
+            .text2 {
+                font-size: 1em;
+            }
+
+            .low-text1,
+            .low-text2 {
+                font-size: 0.8em;
+                margin-top: 15px;
+            }
+
+            .floating-image {
+                width: 100%;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================================================================================================================================= -->
+    <!-- 헤더 -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="image/logo.png" alt="Logo">
+        </a>
+        <div class="nav1">
+            <nav>
+                <ul>
+                    <li><a href="summary.html">줄거리</a></li>
+                    <li><a href="character.html">캐릭터소개</a></li>
+                    <li><a href="stillcut.html">스틸컷</a></li>
+                    <li><a href="book.html">만화책</a></li>
+                    <li><a href="recommend.html">비슷한작품추천</a></li>
+                </ul>
+                <div class="menu-close">Close</div>
+
+
+                <div class="nav-inner">
+                    <p>いつかあなたに届くことができるか</p>
+                    <a href="index.html" class="footer-logo">
+                        <img src="image/logo_호버.png" alt="Logo">
+                    </a>
+                    <p class="small-text">ⓒ 2024 Jang Sohyeon All Right Reserved</p>
+                </div>
+            </nav>
+        </div>
+
+        <div class="menu-toggle">MENU</div>
+    </header>
+
+
+
+
+    <!-- ========================================================================================================================================================= -->
+
+
+    <!-- 섹션1 -->
+    <section id="section1">
+        <div class="stillcut1">
+            <img class="floating-image" src="image/스틸컷/입학식.png">
+
+            <div class="text-box1">
+                <p class="text1">'입학식 날. 그날 느꼈던 그 마음이, <br> 거기서 더 커져버린 지금 이 마음이, <br> 언젠가 너에게 닿을 수 있을까.'</p>
+                <p class="low-text1">1기 1화 - 첫 이야기</p>
+            </div>
+
+        </div>
+    </section>
+    <section id="end">
+        <img src="image/꾸미기/구분선-핑크노랑.png">
+    </section>
+
+
+
+    <!-- =============================================================================================================================== -->
+    <!-- 섹션2 -->
+    <section id="section2">
+        <div class="stillcut2">
+            <div class="text-box2">
+                <p class="text2">"소문 따위는 관심 없어. <br> 지금 나한테는 내가 보고 느끼는 너만이 진짜일 뿐이야."</p>
+                <p class="low-text2">1기 5화 - 결심</p>
+            </div>
+            <img class="floating-image" src="image/스틸컷/카제하야-결심.png">
+        </div>
+    </section>
+    <section id="end">
+        <img src="image/꾸미기/구분선-핑크노랑.png">
+    </section>
+
+
+    <!-- ========================================================================================================================================================= -->
+
+
+    <!-- 섹션1 -->
+    <section id="section1">
+        <div class="stillcut1">
+            <img class="floating-image" src="image/스틸컷/사와코카제하야-은하수.png">
+
+            <div class="text-box1">
+                <p class="text1">"카제하야 널 만난 덕분에 내 인생이 바뀌었는 걸?"</p>
+                <p class="low-text1">1기 7화 - 토요일 밤</p>
+            </div>
+
+        </div>
+    </section>
+    <section id="end">
+        <img src="image/꾸미기/구분선-핑크노랑.png">
+    </section>
+
+
+
+    <!-- =============================================================================================================================== -->
+    <!-- 섹션2 -->
+    <section id="section2">
+        <div class="stillcut2">
+            <div class="text-box2">
+                <p class="text2">"하지만, 내가 진심으로 응원해줄 수가 없으니까. <br>그래서 못하겠다는 거야.<br> 카제하야는 나한테는 특별한 사람이거든."</p>
+                <p class="low-text2">1기 5화 - 결심</p>
+            </div>
+            <img class="floating-image" src="image/스틸컷/사와코-쿠루미에게.png">
+        </div>
+    </section>
+    <section id="end">
+        <img src="image/꾸미기/구분선-핑크노랑.png">
+    </section>
+
+
+    <!-- ========================================================================================================================================================= -->
+
+
+    <!-- 섹션1 -->
+    <section id="section1">
+        <div class="stillcut1">
+            <img class="floating-image" src="image/스틸컷/카제하야-좋아하는사람.png">
+
+            <div class="text-box1">
+                <p class="text1">"내가 누굴 좋아하는지는 당사자한테 제일 먼저 말하고싶으니까. <br> 지금은 말 못해."</p>
+                <p class="low-text1">2기 3화 - 2학년</p>
+            </div>
+
+        </div>
+    </section>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ================================================================================================================================================================== -->
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-inner">
+            <p>いつかあなたに届くことができるか</p>
+            <a href="index.html" class="footer-logo">
+                <img src="image/logo_호버.png" alt="Logo">
+            </a>
+            <p class="small-text">ⓒ 2024 Jang Sohyeon All Right Reserved</p>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+    <script>
+        // 메뉴 토글
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menuClose = document.querySelector('.menu-close');
+            const nav = document.querySelector('nav');
+
+            menuToggle.addEventListener('click', function () {
+                nav.classList.toggle('active');
+                // 클릭할 때마다 active 클래스를 토글하여 메뉴가 보이거나 숨겨지도록 함
+            });
+
+            menuClose.addEventListener('click', function () {
+                nav.classList.remove('active');
+            });
+        });
+
+    </script>
+</body>
+
+</html>

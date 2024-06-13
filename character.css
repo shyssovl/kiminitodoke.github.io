@@ -1,0 +1,405 @@
+
+
+#sub {
+    display: flex;
+    justify-content: center;
+    /* 수평 중앙 정렬 */
+
+    padding: 0;
+    /* 기본 padding 제거 */
+    margin: 30px 0;
+
+}
+
+
+.sub_menu {
+    list-style: none;
+    margin: 0 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 30px;
+    /* padding 값을 30px로 변경 */
+    font-family: "NeoDunggeunmo";
+}
+
+#pink {
+    background-image: url("image/배경/li-백그라운드.png");
+}
+
+#pink:hover {
+    background-image: url("image/배경/li-백그라운드-호버.png");
+}
+
+#blue {
+    background-image: url("image/배경/li-파랑.png");
+}
+
+#blue:hover {
+    background-image: url("image/배경/li-파랑-호버.png");
+}
+
+#yellow {
+    background-image: url("image/배경/li-노랑.png");
+}
+
+#yellow:hover {
+    background-image: url("image/배경/li-노랑-호버.png");
+}
+
+
+#orenge {
+    background-image: url("image/배경/li-주황.png");
+}
+
+#orenge:hover {
+    background-image: url("image/배경/li-주황-호버.png");
+}
+
+#green {
+    background-image: url("image/배경/li-초록.png");
+}
+
+#green:hover {
+    background-image: url("image/배경/li-초록-호버.png");
+}
+
+#purple {
+    background-image: url("image/배경/li-보라.png");
+}
+
+#purple:hover {
+    background-image: url("image/배경/li-보라-호버.png");
+}
+
+#red {
+    background-image: url("image/배경/li-빨강.png");
+}
+
+#red:hover {
+    background-image: url("image/배경/li-빨강-호버.png");
+}
+
+#violet {
+    background-image: url("image/배경/li-바이올렛.png");
+}
+
+#violet:hover {
+    background-image: url("image/배경/li-바이올렛-호버.png");
+}
+
+
+
+
+
+.sub_menu#pink a {
+
+    color: #ff93b7;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.sub_menu#pink a:hover {
+    color: #ff5a91;
+
+    text-decoration: none;
+}
+
+.sub_menu#blue a {
+    color: #7ec5ff;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.sub_menu#blue a:hover {
+    color: #299fff;
+
+    text-decoration: none;
+}
+
+.sub_menu#yellow a {
+    color: #ead21e;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.sub_menu#yellow a:hover {
+    color: #e3b500;
+
+    text-decoration: none;
+}
+
+.sub_menu#orenge a {
+    color: #ff9f6f;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.sub_menu#orenge a:hover {
+    color: #ff6214;
+
+    text-decoration: none;
+}
+
+.sub_menu#green a {
+    color: #6fde80;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.sub_menu#green a:hover {
+    color: #09b423;
+
+    text-decoration: none;
+}
+
+.sub_menu#purple a {
+    color: #ff93fb;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.sub_menu#purple a:hover {
+    color: #df42da;
+
+    text-decoration: none;
+}
+
+.sub_menu#red a {
+    color: #ff7979;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.sub_menu#red a:hover {
+    color: #ed3535;
+
+    text-decoration: none;
+}
+
+.sub_menu#violet a {
+    color: #8585ff;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.sub_menu#violet a:hover {
+    color: #5252ff;
+
+    text-decoration: none;
+}
+
+
+
+
+/* ========================================================================================================================== */
+
+#section1 {
+    margin-left: 300px;
+    margin-top: 120px;
+}
+
+.character1 {
+    display: flex;
+    align-items: flex-start;
+    /* 텍스트가 이미지의 상단에 정렬되도록 설정 */
+    gap: 20px;
+    /* 이미지와 텍스트 박스 사이의 간격 */
+    margin-bottom: 200px;
+}
+
+.character1 img {
+    border-radius: 16px;
+    transition: content 0.8s ease, opacity 0.5s ease;
+    /* 트랜지션 추가 */
+}
+
+/* .character1 img:hover {
+    content: url("image/캐릭터프로필/사와코-호버.png");
+
+} */
+
+.text-box {
+    max-width: 600px;
+    /* 텍스트 박스의 최대 너비 설정 */
+}
+
+.hover-text1 {
+    font-size: 44px;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 40px;
+    margin-bottom: 100px;
+    /* color: #ff5a91; */
+    font-family: "NeoDunggeunmo";
+}
+
+/* .hover-text1::before {
+    content: "쿠로누마 사와코";
+}
+
+.hover-text1:hover::before {
+    content: "黒沼 爽子";
+} */
+
+.info {
+    margin-left: 60px;
+    list-style-image: url();
+}
+
+/* .info li {
+    line-height: 1.8em;
+    list-style-image: url('image/배경/점-핑크.png');
+} */
+
+
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(20deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-20deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+.swing-text {
+    display: inline-block;
+    animation: swing 2s infinite;
+}
+
+
+.back-container {
+    text-align: center;
+    /* 가운데 정렬 */
+}
+
+.back {
+    display: inline-block;
+    margin-bottom: 50px;
+    color: #ff93b7;
+    font-family: "NeoDunggeunmo";
+    font-size: 18px;
+    position: relative;
+    text-decoration: none;
+}
+
+.back::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background-color: #ffe62b;
+    transform-origin: bottom right;
+    transform: scale(0, 1);
+    transition: transform 0.3s ease-out;
+}
+
+.back:hover::after {
+    transform-origin: bottom left;
+    transform: scale(1, 2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================================================================================== */
+/* 반응형 */
+@media (max-width: 768px) {
+    #sub {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sub_menu {
+        margin: 10px 0;
+        width: 80%;
+        text-align: center;
+    }
+
+    #section1 {
+        margin-left: 0;
+        margin-top: 60px;
+    }
+
+    .character1 {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 100px;
+    }
+
+    .character1 img {
+        width: 80%;
+    }
+
+    .text-box {
+        text-align: center;
+        max-width: 90%;
+    }
+
+    .hover-text1 {
+        font-size: 24px;
+        margin-left: 0;
+        margin-bottom: 50px;
+    }
+
+    .info {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .character1 img {
+        width: 100%;
+    }
+
+    .hover-text1 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .info li {
+        font-size: 14px;
+    }
+}

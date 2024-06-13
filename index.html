@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페이지 구성</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="font.css">
+
+    <style>
+        body {
+            background-image: url(image/배경/수채화.png);
+            background-size: cover;
+            /* 화면 크기에 맞게 이미지를 조정합니다. */
+            background-repeat: no-repeat;
+            /* 이미지를 반복하지 않도록 설정합니다. */
+            background-position: center center;
+            /* 이미지를 중앙에 위치시킵니다. */
+           
+        }
+
+        /* 이미지 슬라이드 */
+        .image-slide {
+            position: relative;
+            width: 100%;
+            max-width: 850px;
+            /* 필요한 경우 최대 가로 크기를 설정 */
+            
+
+        }
+
+        .image-slide img {
+            height: 800px;
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .image-slide img.active {
+            display: block;
+        }
+
+
+
+
+        /* ======================================================================================= */
+        .right-img {
+            text-align: right;
+            margin: 0 20px 180px 0;
+            transition: transform 1s ease;
+        }
+
+        .right-img img:hover {
+            content: url("image/메인/우측-텍스트-호버.png");
+        }
+
+
+
+
+
+        /* 반응형 디자인을 위한 미디어 쿼리 */
+        /* @media (max-width: 1200px) {
+            nav ul {
+                margin-left: 800px;
+            }
+
+            .nav-inner {
+                margin-left: 700px;
+            }
+        } */
+
+        /* @media (max-width: 992px) {
+            .logo img {
+                width: 100px;
+                margin-left: 20px;
+            }
+
+            .menu-toggle, .menu-close {
+                font-size: 16px;
+            }
+
+            nav ul {
+                margin-left: 600px;
+            }
+
+            .nav-inner {
+                margin-left: 500px;
+            }
+        } */
+
+        @media (max-width: 768px) {
+
+            /* .right-img를 .image-slide 아래로 이동 */
+            .image-slide {
+                flex-direction: column;
+                height: 300px;
+            }
+
+            .right-img {
+                margin: 500px 0 0 0;
+                /* 위쪽 마진을 설정하여 약간의 간격 추가 */
+                text-align: center;
+                /* 중앙 정렬 */
+            }
+
+            
+        }
+
+        @media (max-width: 480px) {
+
+            .image-slide img {
+                height: auto;
+                /* 자동으로 높이를 조정하여 이미지가 화면에 맞게 조정됨 */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================================================================================================================================= -->
+    <!-- 헤더 -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="image/logo.png" alt="Logo">
+        </a>
+        <div class="nav1">
+            <nav>
+                <ul>
+                    <li><a href="summary.html">줄거리</a></li>
+                    <li><a href="character.html">캐릭터소개</a></li>
+                    <li><a href="stillcut.html">스틸컷</a></li>
+                    <li><a href="book.html">만화책</a></li>
+                    <li><a href="recommend.html">비슷한작품추천</a></li>
+                </ul>
+                <div class="menu-close">Close</div>
+
+
+                <div class="nav-inner">
+                    <p>いつかあなたに届くことができるか</p>
+                    <a href="index.html" class="footer-logo">
+                        <img src="image/logo_호버.png" alt="Logo">
+                    </a>
+                    <p class="small-text">ⓒ 2024 Jang Sohyeon All Right Reserved</p>
+                </div>
+            </nav>
+        </div>
+
+        <div class="menu-toggle">MENU</div>
+    </header>
+
+    <!-- ========================================================================================================================================================= -->
+
+
+    <!-- 이미지 슬라이드 -->
+    <div class="image-slide">
+        <img class="active" src="image/메인/1.png">
+        <img src="image/메인/2.png">
+        <img src="image/메인/3.png">
+    </div>
+
+    <div class="right-img">
+        <img src="image/메인/우측-텍스트.png">
+    </div>
+
+
+    <!-- ================================================================================================================================================================== -->
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-inner">
+            <p>いつかあなたに届くことができるか</p>
+            <a href="index.html" class="footer-logo">
+                <img src="image/logo_호버.png" alt="Logo">
+            </a>
+            <p class="small-text">ⓒ 2024 Jang Sohyeon All Right Reserved</p>
+        </div>
+
+    </footer>
+
+
+    <!-- ================================================================================================================================================================== -->
+
+
+    <script>
+        // 메뉴 토글
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menuClose = document.querySelector('.menu-close');
+            const nav = document.querySelector('nav');
+
+            menuToggle.addEventListener('click', function () {
+                nav.classList.toggle('active');
+                // 클릭할 때마다 active 클래스를 토글하여 메뉴가 보이거나 숨겨지도록 함
+            });
+
+            menuClose.addEventListener('click', function () {
+                nav.classList.remove('active');
+            });
+        });
+
+
+
+
+        // 이미지 슬라이드
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.image-slide img');
+        const totalImages = images.length;
+
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+        }, 3000); // 3초마다 이미지 변경
+
+
+    </script>
+</body>
+
+</html>
